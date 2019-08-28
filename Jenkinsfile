@@ -8,7 +8,8 @@ pipeline {
                 sh 'flask --version'
                 sh 'git clone https://github.com/pallets/flask'
                 sh 'pwd'
-                sh 'cd flask/examples/tutorial'
+                sh 'ls flask'
+                sh 'cd flask/tree/master/examples/tutorial'
                 sh 'pwd'
                 sh 'pip install -e .'
             }
