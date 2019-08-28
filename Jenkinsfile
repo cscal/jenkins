@@ -7,7 +7,9 @@ pipeline {
                 sh 'pip install Flask'
                 sh 'flask --version'
                 sh 'git clone https://github.com/pallets/flask'
+                sh 'pwd'
                 sh 'cd flask/examples/tutorial'
+                sh 'pwd'
                 sh 'pip install -e .'
             }
         }
@@ -27,14 +29,10 @@ pipeline {
             deleteDir() /* clean up our workspace */
         }
         failure {
-            mail to: 'calhoun.charlie@gmail.com',
-                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                body: "Something is wrong with ${env.BUILD_URL}"
+            echo 'Complete and total failure'
         }
         unstable {
-            mail to: 'calhoun.charlie@gmail.com',
-                subject: "Unstable Pipeline: ${currentBuild.fullDisplayName}",
-                body: "Something is wrong with ${env.BUILD_URL}"
+            echo 'Something in the code is not passing tests'
         }
     }
 }
