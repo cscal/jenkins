@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent { docker { image 'python' } }
     stages {
         stage('build') {
             steps {
@@ -9,6 +9,7 @@ pipeline {
                     echo "Multiline shell steps work too!"
                     ls -lah
                 '''
+                pip install Flask
             }
         }
     }
