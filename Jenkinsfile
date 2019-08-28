@@ -7,11 +7,7 @@ pipeline {
                 sh 'pip install Flask'
                 sh 'flask --version'
                 sh 'git clone https://github.com/pallets/flask'
-                sh 'pwd'
-                sh 'ls flask/examples'
-                sh 'cd flask/examples/'
-                sh 'pwd'
-                sh 'pip install -e .'
+                sh 'pip install -e flask/examples/tutorial'
             }
         }
         stage('Test') {
