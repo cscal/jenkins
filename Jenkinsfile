@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'pip install ".[test]"'
+                sh 'pip install flask/examples/tutorial/.[test]'
                 sh 'pytest'
                 sh 'coverage run -m pytest'
                 sh 'coverage report'
