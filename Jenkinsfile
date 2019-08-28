@@ -4,12 +4,13 @@ pipeline {
         stage('build') {
             steps {
                 sh 'python --version'
+                sh 'pip install Flask'
+                sh 'flask --version'
                 sh 'echo "Hello World!"'
                 sh '''
                     echo "Multiline shell steps work too!"
                     ls -lah
                 '''
-                pip install Flask
             }
         }
     }
